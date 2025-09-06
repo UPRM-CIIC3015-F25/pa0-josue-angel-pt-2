@@ -24,7 +24,8 @@ def ball_movement():
             # TODO Task 2: Fix score to increase by 1
             score += 1  # Increase player score
             ball_speed_y *= -1  # Reverse ball's vertical direction
-            # TODO Task 6: Add sound effects HERE
+            paddle_sound.play()
+
 
     # Ball collision with top boundary
     if ball.top <= 0:
@@ -63,7 +64,7 @@ def restart():
 pygame.mixer.pre_init(44100, -16, 1, 1024)
 pygame.init()
 clock = pygame.time.Clock()
-
+paddle_sound = pygame.mixer.Sound('paddle_hit.wav')
 # Main Window setup
 screen_width = 500  # Screen width (can be adjusted)
 screen_height = 500  # Screen height (can be adjusted)
