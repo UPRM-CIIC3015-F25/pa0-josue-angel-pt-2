@@ -65,6 +65,11 @@ pygame.mixer.pre_init(44100, -16, 1, 1024)
 pygame.init()
 clock = pygame.time.Clock()
 paddle_sound = pygame.mixer.Sound('paddle_hit.wav')
+pygame.mixer.init(frequency=16000)
+pygame.mixer.music.load("assets/mimusica.wav")
+pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.play(-1)
+
 # Main Window setup
 screen_width = 500  # Screen width (can be adjusted)
 screen_height = 500  # Screen height (can be adjusted)
