@@ -129,9 +129,30 @@ while True:
     screen.fill(bg_color)  # Clear screen with background color
     pygame.draw.rect(screen, light_grey, player)  # Draw player paddle
     # TODO Task 3: Change the Ball Color
-    pygame.draw.ellipse(screen, light_grey, ball)  # Draw ball
-    player_text = basic_font.render(f'{score}', False, light_grey)  # Render player score
-    screen.blit(player_text, (screen_width/2 - 15, 10))  # Display score on screen
+    pygame.draw.ellipse(screen, red, ball)  # Draw ball
+
+
+    def leer_highscore():
+        archivo = open('highscore.txt', 'r')
+        highscore = int(archivo.read())
+        archivo.close()
+        return highscore
+
+    def guardar_highscore():
+        archivo = open('highscore.txt', 'w')
+        archivo.write(str(score))
+        archivo.close()
+
+        puntos = open('puntos.txt', 'r')
+        highscore = leer_highscore()
+
+        if puntos > highscore:
+            print("!New highscore!")
+            guardar_highscore(puntos)
+
+#renderizar
+    texto = basic_font.render('Score: ' + str(score), True, (255, 255, 255))
+    screen.blit(texto, (10, 10))
 
     # Update display
     pygame.display.flip()
