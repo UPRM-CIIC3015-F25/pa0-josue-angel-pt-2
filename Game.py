@@ -66,7 +66,7 @@ pygame.init()
 clock = pygame.time.Clock()
 paddle_sound = pygame.mixer.Sound('paddle_hit.wav')
 pygame.mixer.init(frequency=16000)
-pygame.mixer.music.load("assets/mimusica.wav")
+pygame.mixer.music.load("mimusica.wav")
 pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1)
 
@@ -131,7 +131,7 @@ while True:
     # TODO Task 3: Change the Ball Color
     pygame.draw.ellipse(screen, red, ball)  # Draw ball
 
-
+    #Sistema de puntos
     def leer_highscore():
         archivo = open('highscore.txt', 'r')
         highscore = int(archivo.read())
@@ -150,7 +150,7 @@ while True:
             print("!New highscore!")
             guardar_highscore(puntos)
 
-#renderizar
+    #Renderizar
     texto = basic_font.render('Score: ' + str(score), True, (255, 255, 255))
     screen.blit(texto, (10, 10))
 
